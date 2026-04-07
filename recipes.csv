@@ -1,0 +1,8 @@
+name,category,ingredients,serving,last_cooked,rating,preparation_time,cooking_instructions,difficulty_level
+Pancakes,Breakfast,flour:2:cup;milk:1.5:cup;egg:1:unit;sugar:2:spoon,2,2026-04-01,8.5,15,Mix ingredients;Heat pan;Cook both sides,3 
+Chicken Salad,Lunch,chicken:200:gram;lettuce:100:gram;tomato:2:unit;olive_oil:2:spoon,3,2026-03-28,7.8,20,Chop vegetables;Grill chicken;Mix all,4 Spaghetti 
+Bolognese,Dinner,pasta:200:gram;beef:150:gram;tomato_sauce:1:cup;onion:1:unit,4,2026-04-03,9.2,30,Boil pasta;Cook beef;Add sauce;Mix together,5 
+Chocolate Cake,Dessert,flour:2:cup;cocoa:0.5:cup;sugar:1.5:cup;eggs:3:unit,6,2026-03-20,9.5,45,Mix dry ingredients;Add eggs;Bake in oven,6 
+Omelette,Breakfast,eggs:2:unit;milk:0.25:cup;cheese:50:gram,1,2026-04-05,7.0,10,Beat eggs;Pour in pan;Add cheese;Fold omelette,2 Grilled 
+Fish,Dinner,fish:300:gram;lemon:1:unit;garlic:2:clove,2,2026-03-30,8.8,25,Season fish;Grill for 15 minutes;Serve hot,4 Fruit 
+Salad,Dessert,apple:1:unit;banana:1:unit;orange:1:unit;honey:1:spoon,2,2026-04-02,6.5,10,Cut fruits;Mix together;Add honey,1 

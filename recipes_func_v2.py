@@ -76,6 +76,80 @@ class RecipesBook:
         for recipe in self.recipes:
             if recipe.name == recipe_shopoing_list:
                 print(recipe.name, recipe.ingredients)
+
+    def search_by_ingredients(self):
+        ingredient_name = input("\nEnter Ingredient Name:\n").lower()
+
+        print("\n_____ Search Results: _____\n")
+        found = False
+
+        for recipe in self.recipes:
+            if ingredient_name in recipe.ingredients.lower():
+                print(recipe.name, "---->", recipe.ingredients)
+                found = True
+
+        if found == False:
+            print("No Recipes Found")
+
+    def view_recipes(self):
+        print("\n_____ List Of All Available Recipes: _____\n")
+        for recipe in self.recipes:
+            print(recipe.name)
+
+    def add_new_recipe(self):
+        print("\n_____ Add New Recipe: _____\n")
+
+        name = input("Enter Recipe Name:\n")
+        category = input("Enter Category:\n")
+        ingredients = input("Enter Ingredients:\n")
+        serving = input("Enter Number Of Servings:\n")
+        last_cooked = input("Enter Last Cooked Date (YYYY-MM-DD):\n")
+        rating = input("Enter Rating From 1 To 10:\n")
+        preparation_time = input("Enter Preparation Time In Minutes:\n")
+        cooking_instructions = input("Enter Cooking Instructions:\n")
+        difficulty_level = input("Enter Difficulty Level From 1 To 10:\n")
+
+        new_recipe = Recipe(name,
+                            category,
+                            ingredients,
+                            serving,
+                            last_cooked,
+                            rating,
+                            preparation_time,
+                            cooking_instructions,
+                            difficulty_level)
+
+        self.recipes.append(new_recipe)
+
+        file = open("recipes2.csv", "a", newline="", encoding="utf-8")
+        writer = csv.writer(file)
+        writer.writerow([name,
+                         category,
+                         ingredients,
+                         serving,
+                         last_cooked,
+                         rating,
+                         preparation_time,
+                         cooking_instructions,
+                         difficulty_level])
+        file.close()
+
+        print("\nRecipe Added Successfully")
+
+
+    def search_by_category(self):
+        """Sort Recipes By Category"""
+        
+        valid_category = ['Breakfast', 'Lunch', 'Dinner','Dessert']
+        print("Please enter a valid ategory: Breakfast', 'Lunch', 'Dinner','Dessert.")
+        selceted_category = input("Choose Category Option: ")
+        
+        
+        if selceted_category in valid_category:
+            for recipe in self.recipes:
+                if selceted_category == recipe.category:
+                    print(recipe.name, "---->", recipe.ingredients)
+                    
             
 # choose a number from the menu
 
@@ -93,7 +167,7 @@ def main():
             4. Sort Recipes By Rating
             5. Search By Ingredients
             6. Add New Recipe
-            7. Scale Ingredients Quantity By Number Of Servings
+            7. Search By Category
             8. Generate Shopping List \n\n"""))
     
 
@@ -102,9 +176,7 @@ def main():
                 break 
                 
             if selection == 1:
-                print("\n_____ List Of All Available Recipes: _____\n ")
-                for recipe in book.recipes:
-                    print(recipe.name)
+                book.view_recipes()
 
                 
             elif selection == 2:
@@ -123,14 +195,14 @@ def main():
                 print("\n_____ List Of Recipes Sorted By Rating: _____\n")
                 book.sort_recipes_by_rate()
                 
-#            elif selection == 5:
-#                book.search_by_ingredients()
+            elif selection == 5:
+               book.search_by_ingredients()
+
+            elif selection == 6:
+               book.add_new_recipe()
                 
-#            elif selection == 6:
-#                book.add_new_recipe()
-                
-#            elif selection == 7:
-#                scale_ingredients_by_serving()
+            elif selection == 7:
+               book.search_by_category()
                 
             elif selection == 8:
                book.generate_shopoing_list()
